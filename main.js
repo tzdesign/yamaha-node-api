@@ -1,5 +1,6 @@
 var YamahaAPI = require("yamaha-nodejs");
 var yamaha = new YamahaAPI("10.0.0.60");
+var port = 3000
 
 var express = require('express');
 var app = express();
@@ -21,7 +22,9 @@ app.get('/volume/:volume',function(req,res){
 
 
 app.get('/on',function(req,res){
-  yamaha.powerOn();
+  yamaha.powerOn().then(function(){
+      yamaha.setVolume(percentageToVolume(80));
+  });
   res.send('1');
 });
 
@@ -41,8 +44,13 @@ app.get('/volume',function(req,res){
     res.send('Volume:' + basicInfo.getVolume());
   });
 });
+app.get('/is/:mode',function(req,res){
+  yamaha.getBasicInfo().done(function(basicInfo){
+    res.send('Volume:' + basicInfo.getVolume());
+  });
+});
 
 
-  app.listen(3000, function () {
-    console.log('Your yamaha is now listening on port 30000!');
+  app.listen(port, function () {
+    console.log('Your yamaha is now listening on port '+port+'!');
   });
