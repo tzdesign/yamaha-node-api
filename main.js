@@ -62,6 +62,10 @@ app.get('/mode',function(req,res){
   });
 });
 
+app.get('/dummy',function(req,res){
+  res.send('1')
+});
+
 
 app.get('/set/mode/:mode',function(req,res){
   yamaha.setInputTo(req.params.mode).then(function(){
