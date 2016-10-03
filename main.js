@@ -14,11 +14,16 @@ function percentageToVolume(percentage){
 }
 
 
+function volumeToPercentage(volume){
+    return Math.round((volume - minVolume) / (maxVolume - minVolume) * 100)
+}
+
 app.get('/volume/:volume',function(req,res){
   yamaha.setVolume(percentageToVolume(req.params.volume));
   res.send('Volume set to: ' + percentageToVolume(req.params.volume));
-
 });
+
+
 
 
 app.get('/on',function(req,res){
@@ -41,7 +46,7 @@ app.get('/status',function(req,res){
 
 app.get('/volume',function(req,res){
   yamaha.getBasicInfo().done(function(basicInfo){
-    res.send(""+basicInfo.getVolume()+"");
+    res.send(""+volumeToPercentage(basicInfo.getVolume())+"");
   });
 });
 app.get('/is/:mode',function(req,res){
