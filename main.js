@@ -22,13 +22,18 @@ app.get('/volume/:volume',function(req,res){
 
 app.get('/on',function(req,res){
   yamaha.powerOn();
-  res.send({"success":'test'});
+  res.send('1');
 });
 
 
 app.get('/off',function(req,res){
   yamaha.powerOff();
-  res.send('Hello World!');
+  res.send('0');
+});
+
+
+app.get('/status',function(req,res){
+  res.send(String(yamaha.isOn()));
 });
 
 app.get('/volume',function(req,res){
@@ -39,5 +44,5 @@ app.get('/volume',function(req,res){
 
 
   app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+    console.log('Your yamaha is now listening on port 30000!');
   });
