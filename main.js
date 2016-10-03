@@ -41,7 +41,7 @@ app.get('/status',function(req,res){
 
 app.get('/volume',function(req,res){
   yamaha.getBasicInfo().done(function(basicInfo){
-    res.send('Volume:' + basicInfo.getVolume());
+    res.send(""+basicInfo.getVolume()+"");
   });
 });
 app.get('/is/:mode',function(req,res){
