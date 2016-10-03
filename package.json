@@ -1,0 +1,16 @@
+{
+  "name": "yamaha",
+  "version": "1.0.0",
+  "description": "Yamaha receiver API",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "yamaha-nodejs": "^0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tobias Zimmermann",
+  "license": "ISC"
+}
