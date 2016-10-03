@@ -33,7 +33,7 @@ app.get('/off',function(req,res){
 
 
 app.get('/status',function(req,res){
-  res.send(String(yamaha.isOn()));
+  res.send(yamaha.isOn()?"1":"0");
 });
 
 app.get('/volume',function(req,res){
