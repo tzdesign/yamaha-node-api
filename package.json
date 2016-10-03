@@ -12,5 +12,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tobias Zimmermann",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzdesign/yamaha-node-api.git"
+  },
+  "keywords": [
+    "yamaha"
+  ],
+  "bugs": {
+    "url": "https://github.com/tzdesign/yamaha-node-api/issues"
+  },
+  "homepage": "https://github.com/tzdesign/yamaha-node-api#readme"
 }
