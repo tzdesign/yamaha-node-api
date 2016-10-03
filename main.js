@@ -27,8 +27,10 @@ app.get('/volume/:volume',function(req,res){
 
 
 app.get('/on',function(req,res){
-  yamaha.powerOn().then(function(){
-    yamaha.setVolume(percentageToVolume(80));
+  yamaha.isOff().then(function(){
+    yamaha.powerOn().then(function(){
+      yamaha.setVolume(percentageToVolume(80));
+    });
   });
   res.send('1');
 });
